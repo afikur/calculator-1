@@ -55,7 +55,7 @@ pipeline {
 
     stage("Deploy to staging") {
       steps {
-        sh "docker-compose up"
+        sh "docker run -p 8080:8080 leszko/calculator"
       }
     }
 
