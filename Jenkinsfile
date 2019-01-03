@@ -55,7 +55,7 @@ pipeline {
 
     stage("Deploy to staging") {
       steps {
-        sh "docker-compose up leszko/calculator"
+        sh "docker-compose up -d"
       }
     }
 
