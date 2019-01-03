@@ -55,25 +55,11 @@ pipeline {
 
     stage("Deploy to staging") {
       steps {
-        sh "ansible-playbook playbook.yml -i inventory/staging"
-        sleep 60
+        sh "docker-compose up"
       }
     }
 
-    stage("Acceptance test") {
-      steps {
-	sh "./acceptance_test.sh 192.168.0.166"
-      }
-    }
-	  
-    // Performance test stages
-
-    stage("Release") {
-      steps {
-        sh "ansible-playbook playbook.yml -i inventory/production"
-        sleep 60
-      }
-    }
+   
 
     stage("Smoke test") {
       steps {
